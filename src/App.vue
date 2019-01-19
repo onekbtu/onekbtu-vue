@@ -29,19 +29,6 @@ export default {
   components: {
     MainCard, Footer, NavigationDrawer, Toolbar,
   },
-  mounted() {
-    WebFontLoader.load({
-      google: {
-        families: ['Roboto:100,300,400,500,700,900'],
-      },
-      active: this.setFontLoaded,
-    });
-  },
-  methods: {
-    setFontLoaded() {
-      this.$emit('font-loaded');
-    },
-  },
   data: () => ({
     show: false,
     items: [
