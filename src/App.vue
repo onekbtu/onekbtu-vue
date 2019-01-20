@@ -1,29 +1,42 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <template>
+      <v-app dark>
+        <Toolbar></Toolbar>
+        <NavigationDrawer></NavigationDrawer>
+        <div style="padding-left: 300px; padding-top: 80px">
+          <h2 class=".display-3" style="margin-left: 32px;color: #9d9d9d;"> Recent posts</h2>
+            <v-layout align-space-between justify-space-around row wrap>
+              <v-flex sm11 md5 v-for="x in [1, 2, 3, 4, 5]">
+                <MainCard></MainCard>
+              </v-flex>
+            </v-layout>
+          <Footer></Footer>
+        </div>
+      </v-app>
+    </template>
   </div>
 </template>
 
-<style lang="less">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
-</style>
+<script>
+import WebFontLoader from 'webfontloader';
+import Toolbar from './components/Toolbar.vue';
+import NavigationDrawer from './components/NavigationDrawer.vue';
+import Footer from './components/Footer.vue';
+import MainCard from './components/MainCard.vue';
+
+export default {
+  components: {
+    MainCard, Footer, NavigationDrawer, Toolbar,
+  },
+  data: () => ({
+    show: false,
+    items: [
+      { title: 'Home', icon: 'dashboard' },
+      { title: 'About', icon: 'question_answer' },
+    ],
+    right: null,
+  }),
+};
+
+</script>
