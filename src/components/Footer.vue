@@ -11,7 +11,8 @@
           tile
         >
           <v-card-actions class="grey darken-3 justify-center">
-            &copy;2018 — <strong>Default Inc</strong>
+            &copy;2019 — <strong>Default Inc</strong>
+            <v-icon class="wrapper" color="red">favorite</v-icon>
           </v-card-actions>
         </v-card>
       </v-footer>
@@ -25,5 +26,13 @@ export default {
 </script>
 
 <style scoped>
+.wrapper {
+  animation: heartbeat 0.8s linear infinite;
+}
 
+@keyframes heartbeat {
+  0%{transform: scale(0.8, 0.8)}
+  50%{transform: scale(0.6, 0.6)}
+  100%{transform: scale(0.8, 0.8)}
+}
 </style>

@@ -1,7 +1,7 @@
 <template>
   <v-toolbar fixed app>
     <v-toolbar-side-icon></v-toolbar-side-icon>
-    <v-toolbar-title>One KBTU</v-toolbar-title>
+    <v-toolbar-title><router-link to="/" class="toolbar-title"> One KBTU </router-link> </v-toolbar-title>
     <v-spacer></v-spacer>
     <v-toolbar-items class="hidden-sm-and-down">
       <v-btn flat>CREATE POST</v-btn>
@@ -18,5 +18,8 @@ export default {
 </script>
 
 <style scoped>
-
+.toolbar-title {
+  color: inherit;
+  text-decoration: inherit;
+}
 </style>
