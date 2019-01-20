@@ -5,12 +5,13 @@
         <Toolbar></Toolbar>
         <NavigationDrawer></NavigationDrawer>
         <div style="padding-left: 300px; padding-top: 80px">
-          <h2 class=".display-3" style="margin-left: 32px;color: #9d9d9d;"> Recent posts</h2>
-            <v-layout align-space-between justify-space-around row wrap>
-              <v-flex sm11 md5 v-for="x in [1, 2, 3, 4, 5]">
-                <MainCard></MainCard>
-              </v-flex>
-            </v-layout>
+          <!--<h2 class=".display-3" style="margin-left: 32px;color: #9d9d9d;"> Recent posts</h2>-->
+            <!--<v-layout align-space-between justify-space-around row wrap>-->
+              <!--<v-flex sm11 md5 v-for="x in [1, 2, 3, 4, 5]">-->
+                <!--<MainCard></MainCard>-->
+              <!--</v-flex>-->
+            <!--</v-layout>-->
+          <router-view></router-view>
           <Footer></Footer>
         </div>
       </v-app>
