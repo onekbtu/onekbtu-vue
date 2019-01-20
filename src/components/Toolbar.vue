@@ -4,7 +4,7 @@
     <v-toolbar-title>One KBTU</v-toolbar-title>
     <v-spacer></v-spacer>
     <v-toolbar-items class="hidden-sm-and-down">
-      <v-btn flat>CREATE POST</v-btn>
+      <v-btn flat to='/posts/create/'>CREATE POST</v-btn>
       <v-btn flat>FOLLOWED</v-btn>
       <v-btn flat>PROFILE</v-btn>
     </v-toolbar-items>
