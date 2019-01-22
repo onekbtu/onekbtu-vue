@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import Post from './models/model';
+import Post from './model';
 
 Vue.use(Vuex);
 

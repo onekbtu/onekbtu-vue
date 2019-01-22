@@ -7,7 +7,7 @@ Vue.use(Router);
 export default new Router({
   routes: [
     {
-      path: '/models/create/',
+      path: '/posts/create/',
       name: 'PostCreateForm',
       component: PostCreateForm,
     },
