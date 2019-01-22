@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import Post from './model';
+import API from '../../api';
 
 Vue.use(Vuex);
 
@@ -9,14 +10,28 @@ export interface State {
 }
 
 const mutations = {
+  set: (state, posts) => {
+    state.all = posts;
+  },
   create: (state, post) => {
     state.all.push(post)
   }
 };
 
 const actions = {
+  read({ commit }) {
+    API.get('/posts/').then((response) => {
+      if (response.status === 200) {
+        commit('set', response.data)
+      }
+    });
+  },
   create({ commit }, post) {
-    commit('create', post)
+    API.post('/posts/', post).then((response) => {
+      if (response.status === 201) {
+        commit('create', post)
+      }
+    });
   }
 };
 
