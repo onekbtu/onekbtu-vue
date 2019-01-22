@@ -8,6 +8,18 @@ export interface State {
   all: Post[];
 }
 
+const mutations = {
+  create: (state, post) => {
+    state.all.push(post)
+  }
+};
+
+const actions = {
+  create({ commit }, post) {
+    commit('create', post)
+  }
+};
+
 const state: State = {
   all: [
     new Post(1, 'Test post #1', 'Make way for Prince Ali\n' +
@@ -186,5 +198,8 @@ const state: State = {
 };
 
 export default {
-  state: state,
+  namespaced: true,
+  state,
+  mutations,
+  actions,
 }

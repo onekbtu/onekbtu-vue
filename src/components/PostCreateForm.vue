@@ -28,7 +28,7 @@
 <script>
 
 import { mapActions } from 'vuex';
-import Post from '../store/modules/models/model';
+import Post from '../store/modules/posts/model';
 
 export default {
   name: 'PostCreateForm',
