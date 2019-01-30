@@ -11,7 +11,7 @@
           tile
         >
           <v-card-actions class="grey darken-3 justify-center">
-            &copy;2019 — <strong>Default Inc</strong>
+            &copy;2019 — &nbsp;<strong>Default Inc</strong>
             <v-icon class="wrapper" color="red">favorite</v-icon>
           </v-card-actions>
         </v-card>
