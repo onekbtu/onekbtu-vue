@@ -7,7 +7,14 @@
           <span class="grey--text">ThinkIT club</span>
         </div>
         <span style="margin-top: 8px;">
-          {{ post.content }}
+          <mavon-editor language='ru'
+                        :toolbarsFlag="false"
+                        :subfield="false"
+                        defaultOpen="preview"
+                        style="z-index: 0;"
+                        v-model='post.content'>
+          </mavon-editor>
+          <!--{{ post.content }}-->
         </span>
       </v-card-title>
 
@@ -34,5 +41,7 @@ export default {
 </script>
 
 <style scoped>
-
+  .v-show-content-html {
+    background: red;
+  }
 </style>
