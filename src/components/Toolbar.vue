@@ -1,7 +1,9 @@
 <template>
   <v-toolbar fixed app>
-    <v-toolbar-side-icon></v-toolbar-side-icon>
-    <v-toolbar-title><router-link to="/" class="toolbar-title"> One KBTU </router-link> </v-toolbar-title>
+    <v-toolbar-side-icon @click="toggleNav"></v-toolbar-side-icon>
+    <v-toolbar-title>
+      <router-link to="/" class="toolbar-title"> One KBTU </router-link>
+    </v-toolbar-title>
     <v-spacer></v-spacer>
     <v-toolbar-items class="hidden-sm-and-down">
       <v-btn flat to='/posts/create/'>CREATE POST</v-btn>
@@ -14,6 +16,11 @@
 <script>
 export default {
   name: 'Toolbar',
+  methods: {
+    toggleNav() {
+      this.$root.$emit('toggleNav');
+    },
+  },
 };
 </script>
 

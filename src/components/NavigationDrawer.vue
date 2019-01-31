@@ -3,6 +3,7 @@
     app
     dark
     value="true"
+    v-model="drawer"
     stateless>
     <v-toolbar flat>
       <v-list>
@@ -27,7 +28,6 @@
         <v-list-tile
           v-for="(admin, i) in admins"
           :key="i"
-          @click=""
         >
           <v-list-tile-title v-text="admin[0]"></v-list-tile-title>
           <v-list-tile-action>
@@ -46,7 +46,6 @@
         <v-list-tile
           v-for="(crud, i) in cruds"
           :key="i"
-          @click=""
         >
           <v-list-tile-title v-text="crud[0]"></v-list-tile-title>
           <v-list-tile-action>
@@ -54,11 +53,7 @@
           </v-list-tile-action>
         </v-list-tile>
       </v-list-group>
-      <v-list-tile
-        v-for=""
-        :key="i"
-        @click=""
-      >
+      <v-list-tile>
         <v-list-tile-title>About</v-list-tile-title>
       </v-list-tile>
     </v-list>
@@ -78,7 +73,17 @@ export default {
       ['English Club', 'insert_drive_file'],
       ['Anime Club', 'update'],
     ],
+    drawer: null,
   }),
+  methods: {
+    toggleNav() {
+      console.log(this);
+      this.drawer = !this.drawer;
+    },
+  },
+  mounted() {
+    this.$root.$on('toggleNav', this.toggleNav);
+  },
 };
 </script>
 
