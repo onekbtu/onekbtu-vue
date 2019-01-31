@@ -73,7 +73,7 @@ export default {
       ['English Club', 'insert_drive_file'],
       ['Anime Club', 'update'],
     ],
-    drawer: null,
+    drawer: true,
   }),
   methods: {
     toggleNav() {

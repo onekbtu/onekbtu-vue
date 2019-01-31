@@ -29,7 +29,7 @@ export default {
       { title: 'About', icon: 'question_answer' },
     ],
     right: null,
-    paddingLeft: 0,
+    paddingLeft: 300,
   }),
   methods: {
     toggleNav() {

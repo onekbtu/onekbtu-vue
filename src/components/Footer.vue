@@ -2,7 +2,7 @@
   <div>
       <div style="height: 72px"></div>
       <v-footer
-        style="margin-top: 16px; position: absolute;width:100%;bottom:0;padding-right:300px;"
+        style="margin-top: 16px;width:100%;bottom:0;"
         height="auto"
       >
         <v-card
