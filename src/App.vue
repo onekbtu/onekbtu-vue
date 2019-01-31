@@ -4,7 +4,7 @@
       <v-app dark>
         <Toolbar></Toolbar>
         <NavigationDrawer></NavigationDrawer>
-        <div style="padding-left: 300px; padding-top: 80px">
+        <div :style="{'padding-left': paddingLeft + 'px', 'padding-top': 80 + 'px'}">
           <router-view></router-view>
           <Footer></Footer>
         </div>
@@ -29,7 +29,16 @@ export default {
       { title: 'About', icon: 'question_answer' },
     ],
     right: null,
+    paddingLeft: 0,
   }),
+  methods: {
+    toggleNav() {
+      this.paddingLeft = 300 - this.paddingLeft;
+    },
+  },
+  mounted() {
+    this.$root.$on('toggleNav', this.toggleNav);
+  },
 };
 
 </script>
