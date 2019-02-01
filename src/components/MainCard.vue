@@ -14,13 +14,20 @@
                         style="z-index: 0;"
                         v-model='post.content'>
           </mavon-editor>
-          <!--{{ post.content }}-->
         </span>
       </v-card-title>
 
       <v-card-actions>
+        <v-btn style="opacity: 0.54" icon flat>
+          <v-icon>arrow_upward</v-icon>
+        </v-btn>
+        <p class="font-weight-bold"> 2 </p>
+        <v-btn style="opacity: 0.54" icon flat>
+          <v-icon>arrow_downward</v-icon>
+        </v-btn>
+        <v-spacer></v-spacer>
         <v-btn flat>Share</v-btn>
-        <v-btn flat color="orange">Explore</v-btn>
+        <v-btn flat color="orange">Comments</v-btn>
       </v-card-actions>
     </v-card>
   </v-flex>
