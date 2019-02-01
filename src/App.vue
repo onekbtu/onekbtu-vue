@@ -4,7 +4,9 @@
       <v-app dark>
         <Toolbar></Toolbar>
         <NavigationDrawer></NavigationDrawer>
-        <div :style="{'padding-left': paddingLeft + 'px', 'padding-top': 80 + 'px'}">
+        <div class="content"
+             :style="{'padding-left': paddingLeft + 'px', 'padding-top': 80 + 'px'}"
+        >
           <router-view></router-view>
           <Footer></Footer>
         </div>
@@ -42,3 +44,11 @@ export default {
 };
 
 </script>
+
+<style scoped>
+  .content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+</style>

@@ -1,8 +1,7 @@
 <template>
-  <div>
-      <div style="height: 72px"></div>
+  <div
+    style="margin-top: auto; width: 100%; padding-top: 72px;">
       <v-footer
-        style="margin-top: 16px;width:100%;bottom:0;"
         height="auto"
       >
         <v-card
