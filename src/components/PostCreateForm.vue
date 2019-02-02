@@ -4,15 +4,17 @@
       <v-container>
         <v-layout row wrap>
         <v-flex xs12 sm6 md9>
-          <v-text-field v-model='title' placeholder='Title' label='Title' required>
+          <v-text-field v-model='post.title' placeholder='Title' label='Title' required>
           </v-text-field>
         </v-flex>
         </v-layout>
         <v-layout row wrap>
           <v-flex xs12 sm6 md9>
-            <mavon-editor language='ru' v-model='content'></mavon-editor>
+            <mavon-editor style="z-index: 0;" language='ru' v-model="post.content">
+            </mavon-editor>
           </v-flex>
         </v-layout>
+        <MainCard :post="post"></MainCard>
         <v-layout row wrap>
           <v-flex xs12 sm6 md3>
             <v-btn color='success' v-on:click='onclick'>
@@ -29,27 +31,26 @@
 
 import { mapActions } from 'vuex';
 import Post from '../store/modules/posts/model';
+import MainCard from './MainCard.vue';
 
 export default {
   name: 'PostCreateForm',
-  data: () => (
-    {
-      title: '',
-      content: '',
-    }
-  ),
+  components: {
+    MainCard,
+  },
+  data: () => ({
+    post: new Post(0, '', ''),
+  }),
   methods: {
     ...mapActions('posts', {
       create: 'create',
     }),
     onclick() {
-      const post = new Post(2, this.title, this.content);
-      this.create(post);
+      this.create(this.post);
     },
   },
 };
 </script>
 
 <style scoped>
-
 </style>

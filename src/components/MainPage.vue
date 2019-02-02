@@ -3,7 +3,10 @@
       <Toolbar></Toolbar>
       <NavigationDrawer></NavigationDrawer>
       <div class="content"
-           :style="{'padding-left': paddingLeft + 'px', 'padding-top': 80 + 'px'}"
+           :style="{
+               'padding-left': paddingLeft + 'px',
+               'padding-top': 80 + 'px',
+           }"
       >
         <router-view></router-view>
         <Footer></Footer>

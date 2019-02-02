@@ -6,12 +6,12 @@
           <h3 class="headline mb-0"> {{ post.title }}</h3>
           <span class="grey--text">ThinkIT club</span>
         </div>
-        <span style="margin-top: 8px;">
+        <span style="margin-top: 8px; width: 100%;">
           <mavon-editor language='ru'
                         :toolbarsFlag="false"
                         :subfield="false"
                         defaultOpen="preview"
-                        style="z-index: 0;"
+                        style="z-index: 1;"
                         v-model='post.content'>
           </mavon-editor>
         </span>
@@ -68,12 +68,24 @@ export default {
       dislikeHover: false,
     };
   },
+  mounted() {
+    console.log(this.$el.getElementsByClassName('v-show-content'));
+    this.$el.getElementsByClassName('v-show-content')[0].classList.add('preview_markdown');
+    this.$el.getElementsByClassName('v-note-panel')[0].classList.add('preview_markdown');
+  },
 };
 </script>
 
-<style scoped>
+<style>
   .vote_btn_default {
     opacity: 0.54;
     color: white;
   }
+  .preview_markdown {
+    background: #424242 !important;
+    box-shadow: none !important;
+    color: white;
+    width: 100%;
+  }
+
 </style>
