@@ -18,13 +18,29 @@
       </v-card-title>
 
       <v-card-actions>
-        <v-btn style="opacity: 0.54" icon flat>
-          <v-icon>arrow_upward</v-icon>
-        </v-btn>
-        <p class="font-weight-bold"> 2 </p>
-        <v-btn style="opacity: 0.54" icon flat>
-          <v-icon>arrow_downward</v-icon>
-        </v-btn>
+        <v-layout fluid align-center justify-start fill-height>
+          <v-icon
+            medium
+            v-bind:class="{
+                'vote_btn_default': !likeHover && !liked,
+                'pink--text': likeHover || liked,
+            }"
+            style="cursor: pointer"
+            v-on:mouseover="likeHover = !likeHover"
+            v-on:mouseleave="likeHover = !likeHover"
+          >arrow_upward</v-icon>
+          <p class="font-weight-bold mb-0 ml-3 mr-3"> 2 </p>
+          <v-icon
+            medium
+            v-bind:class="{
+                'vote_btn_default': !dislikeHover && !disliked,
+                'blue--text': dislikeHover || disliked,
+            }"
+            style="cursor: pointer"
+            v-on:mouseover="dislikeHover = !dislikeHover"
+            v-on:mouseleave="dislikeHover= !dislikeHover"
+          >arrow_downward</v-icon>
+        </v-layout>
         <v-spacer></v-spacer>
         <v-btn flat>Share</v-btn>
         <v-btn flat color="orange">Comments</v-btn>
@@ -44,11 +60,20 @@ export default {
       required: true,
     },
   },
+  data() {
+    return {
+      liked: false,
+      likeHover: false,
+      disliked: false,
+      dislikeHover: false,
+    };
+  },
 };
 </script>
 
 <style scoped>
-  .v-show-content-html {
-    background: red;
+  .vote_btn_default {
+    opacity: 0.54;
+    color: white;
   }
 </style>
