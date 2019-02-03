@@ -43,7 +43,7 @@
         </v-layout>
         <v-spacer></v-spacer>
         <v-btn flat>Share</v-btn>
-        <v-btn flat color="orange">Comments</v-btn>
+        <v-btn flat color="deep-orange lighten-1">Comments</v-btn>
       </v-card-actions>
     </v-card>
   </v-flex>

@@ -10,6 +10,14 @@
       <v-btn flat>FOLLOWED</v-btn>
       <v-btn flat>PROFILE</v-btn>
     </v-toolbar-items>
+    <v-btn flat outline>LOG IN</v-btn>
+    <v-btn style="background-color: #fafafa !important;"
+           color="deep-orange darken-1"
+           flat
+           outline
+    >
+      SIGN UP
+    </v-btn>
   </v-toolbar>
 </template>
 
