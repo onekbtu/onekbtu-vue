@@ -11,7 +11,7 @@
                         :toolbarsFlag="false"
                         :subfield="false"
                         defaultOpen="preview"
-                        style="z-index: 1;"
+                        style="z-index: 1;min-height: 120px;"
                         v-model='post.content'>
           </mavon-editor>
         </span>
@@ -84,8 +84,11 @@ export default {
   .preview_markdown {
     background: #424242 !important;
     box-shadow: none !important;
+    padding-left: 4px !important;
+    padding-right: 4px !important;
     color: white;
     width: 100%;
+    font-family: Roboto,sans-serif !important;
   }
 
 </style>
