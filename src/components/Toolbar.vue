@@ -6,15 +6,22 @@
     </v-toolbar-title>
     <v-spacer></v-spacer>
     <v-toolbar-items class="hidden-sm-and-down">
-      <v-btn flat to='/posts/create/'>CREATE POST</v-btn>
+      <v-btn flat :to="{name: 'PostCreateForm'}">CREATE POST</v-btn>
       <v-btn flat>FOLLOWED</v-btn>
       <v-btn flat>PROFILE</v-btn>
     </v-toolbar-items>
-    <v-btn flat outline>LOG IN</v-btn>
+    <v-btn
+      flat
+      outline
+      :to="{name: 'login'}"
+    >
+      LOG IN
+    </v-btn>
     <v-btn style="background-color: #fafafa !important;"
            color="deep-orange darken-1"
            flat
            outline
+           :to="{name: 'register'}"
     >
       SIGN UP
     </v-btn>
