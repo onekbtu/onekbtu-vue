@@ -53,7 +53,7 @@
           </v-list-tile-action>
         </v-list-tile>
       </v-list-group>
-      <v-list-tile>
+      <v-list-tile :to="{name: 'About'}">
         <v-list-tile-title>About</v-list-tile-title>
       </v-list-tile>
     </v-list>

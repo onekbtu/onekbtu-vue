@@ -25,6 +25,11 @@ export default new Router({
           name: 'PostCreateForm',
           component: PostCreateForm,
         },
+        {
+          path: '/about/',
+          name: 'About',
+          component: () => import('./components/About.vue'),
+        },
       ],
     },
     {
