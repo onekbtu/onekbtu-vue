@@ -77,7 +77,6 @@ export default {
   }),
   methods: {
     toggleNav() {
-      console.log(this);
       this.drawer = !this.drawer;
     },
   },

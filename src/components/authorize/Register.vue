@@ -5,6 +5,7 @@
     </v-flex>
     <v-flex class="auth-input ml-4">
       <v-text-field
+        v-model="email"
         label="E-mail •"
         :rules="[rules.required, rules.email]"
         outline
@@ -12,13 +13,15 @@
     </v-flex>
     <v-flex class="auth-input ml-4">
       <v-text-field
+        v-model="username"
         label="Username •"
-        :rules="[rules.required]"
+        :rules="[rules.required, rules.username]"
         outline
       ></v-text-field>
     </v-flex>
     <v-flex class="auth-input ml-4">
       <v-text-field
+        v-model="password"
         label="Password •"
         :type="showPass ? 'text' : 'password'"
         hint="At least 6 characters"
@@ -44,6 +47,9 @@
 export default {
   name: 'Register',
   data: () => ({
+    email: '',
+    username: '',
+    password: '',
     showPass: false,
     rules: {
       required: value => !!value || 'Required.',
@@ -51,6 +57,10 @@ export default {
       email: (value) => {
         const pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         return pattern.test(value) || 'Invalid e-mail.';
+      },
+      username: (value) => {
+        const pattern = /^[A-Za-z0-9_]+$/;
+        return pattern.test(value) || 'Latin letters, digits and underscore characters';
       },
     },
   }),

@@ -5,7 +5,6 @@
       <div class="content"
            :style="{
                'padding-left': paddingLeft + 'px',
-               'padding-top': 80 + 'px',
            }"
       >
         <router-view></router-view>
@@ -47,6 +46,7 @@ export default {
 <style scoped>
   .content {
     height: 100%;
+    padding-top: 80px;
     display: flex;
     flex-direction: column;
   }

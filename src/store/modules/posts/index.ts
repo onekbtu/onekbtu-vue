@@ -1,9 +1,6 @@
-import Vue from 'vue';
-import Vuex from 'vuex';
+import {POSTS_CREATE, POSTS_GET_ALL} from '@/store/actions/posts';
 import Post from './model';
-import API from '../../api';
-
-Vue.use(Vuex);
+import API from '@/store/api';
 
 export interface State {
   all: Post[];
@@ -19,14 +16,14 @@ const mutations = {
 };
 
 const actions = {
-  read({ commit }) {
+  [POSTS_GET_ALL]: ({ commit }) => {
     API.get('/posts/').then((response) => {
       if (response.status === 200) {
         commit('set', response.data["results"])
       }
     });
   },
-  create({ commit }, post) {
+  [POSTS_CREATE]: ({ commit }, post) => {
     API.post('/posts/', post).then((response) => {
       if (response.status === 201) {
         commit('create', post)

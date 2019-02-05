@@ -8,6 +8,7 @@
         </div>
         <span style="margin-top: 8px; width: 100%;">
           <mavon-editor language='ru'
+                        :imageClick="null"
                         :toolbarsFlag="false"
                         :subfield="false"
                         defaultOpen="preview"
@@ -69,7 +70,6 @@ export default {
     };
   },
   mounted() {
-    console.log(this.$el.getElementsByClassName('v-show-content'));
     this.$el.getElementsByClassName('v-show-content')[0].classList.add('preview_markdown');
     this.$el.getElementsByClassName('v-note-panel')[0].classList.add('preview_markdown');
   },

@@ -10,6 +10,7 @@
 <script>
 
 import { mapActions, mapState } from 'vuex';
+import { POSTS_GET_ALL } from '../store/actions/posts';
 import MainCard from './MainCard.vue';
 
 export default {
@@ -24,7 +25,7 @@ export default {
   },
   methods: {
     ...mapActions('posts', {
-      fetchPosts: 'read',
+      fetchPosts: POSTS_GET_ALL,
     }),
   },
   mounted() {

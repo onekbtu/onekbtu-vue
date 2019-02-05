@@ -7,7 +7,7 @@
 
 <script>
 export default {
-  name: 'Authorize.vue',
+  name: 'Authorize',
 };
 </script>
 

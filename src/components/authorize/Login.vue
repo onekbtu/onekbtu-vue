@@ -37,6 +37,9 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
+import { AUTH_REQUEST } from '../../store/actions/auth';
+
 export default {
   name: 'Login',
   data: () => ({
@@ -49,10 +52,14 @@ export default {
     },
   }),
   methods: {
+    ...mapActions('user', {
+      authorise: AUTH_REQUEST,
+    }),
     login() {
       const { username, password } = this;
-      this.$store.dispatch(AUTH_REQUEST, { username, password }).then(() => {
-        this.$router.push('/');
+      console.log('OK');
+      this.authorise({ username, password }).then(() => {
+        this.router.push('/');
       });
     },
   },

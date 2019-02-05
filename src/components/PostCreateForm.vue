@@ -10,7 +10,12 @@
         </v-layout>
         <v-layout row wrap>
           <v-flex xs12 sm6 md9>
-            <mavon-editor style="z-index: 0;" language='ru' v-model="post.content">
+            <mavon-editor
+              style="z-index: 0;"
+              defaultOpen="edit"
+              language='ru'
+              :toolbars="toolbars"
+              v-model="post.content">
             </mavon-editor>
           </v-flex>
         </v-layout>
@@ -30,8 +35,34 @@
 <script>
 
 import { mapActions } from 'vuex';
+import { POSTS_CREATE } from '../store/actions/posts';
 import Post from '../store/modules/posts/model';
 import MainCard from './MainCard.vue';
+
+const EDITOR_TOOLBAR = {
+  bold: true,
+  italic: true,
+  header: true,
+  underline: true,
+  strikethrough: true,
+  mark: false,
+  superscript: true,
+  subscript: true,
+  quote: true,
+  ol: true,
+  ul: true,
+  link: true,
+  imagelink: true,
+  code: true,
+  table: true,
+  readmodel: false,
+  htmlcode: true,
+  help: true,
+  alignleft: true,
+  aligncenter: true,
+  alignright: true,
+  subfield: false,
+};
 
 export default {
   name: 'PostCreateForm',
@@ -40,10 +71,11 @@ export default {
   },
   data: () => ({
     post: new Post(0, '', ''),
+    toolbars: EDITOR_TOOLBAR,
   }),
   methods: {
     ...mapActions('posts', {
-      create: 'create',
+      create: POSTS_CREATE,
     }),
     onclick() {
       this.create(this.post);
