@@ -29,6 +29,20 @@
         </v-layout>
       </v-container>
     </v-form>
+    <v-snackbar
+      v-model="snackbar"
+      color="info"
+      :timeout="5000"
+    >
+      Post must have *Title* and *Content*.
+      <v-btn
+        dark
+        flat
+        @click="snackbar = false"
+      >
+        Close
+      </v-btn>
+    </v-snackbar>
   </div>
 </template>
 
@@ -70,7 +84,8 @@ export default {
     MainCard,
   },
   data: () => ({
-    post: new Post(0, '', '', 0),
+    post: new Post(0, '', '', 0, 0),
+    snackbar: false,
     toolbars: EDITOR_TOOLBAR,
   }),
   methods: {
@@ -78,9 +93,13 @@ export default {
       create: POSTS_CREATE,
     }),
     onclick() {
-      this.create(this.post).then(() => {
-        this.$router.push('/');
-      });
+      if (!this.post.title || !this.post.content) {
+        this.snackbar = true;
+      } else {
+        this.create(this.post).then(() => {
+          this.$router.push('/');
+        });
+      }
     },
   },
 };

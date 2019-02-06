@@ -20,7 +20,7 @@ const actions = {
     API.get('/posts/').then((response) => {
       if (response.status === 200) {
         commit('set', response.data.results.map(post =>
-          new Post(post.id, post.title, post.content, post.rating)
+          new Post(post.id, post.title, post.content, post.rating, post.vote)
         ));
       }
     });

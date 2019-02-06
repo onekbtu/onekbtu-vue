@@ -82,14 +82,18 @@ export default {
   data() {
     return {
       snackbar: false,
-      liked: false,
       likeHover: false,
-      disliked: false,
       dislikeHover: false,
     };
   },
   computed: {
     ...mapGetters('user', ['isAuthenticated']),
+    liked() {
+      return this.post.vote === 1;
+    },
+    disliked() {
+      return this.post.vote === -1;
+    },
   },
   methods: {
     ...mapActions('posts', {
@@ -103,8 +107,6 @@ export default {
         return;
       }
       this.like(this.post.id).then(() => {
-        this.liked = true;
-        this.disliked = false;
       });
     },
     dislikeClicked() {
@@ -113,8 +115,6 @@ export default {
         return;
       }
       this.dislike(this.post.id).then(() => {
-        this.disliked = true;
-        this.liked = false;
       });
     },
   },
