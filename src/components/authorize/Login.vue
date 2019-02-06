@@ -6,7 +6,7 @@
     <v-flex class="auth-input ml-4">
       <v-text-field
         v-model="username"
-        label="E-mail or username •"
+        label="Username •"
         :rules="[rules.required]"
         outline
       ></v-text-field>
