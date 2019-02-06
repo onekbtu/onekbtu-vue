@@ -11,25 +11,25 @@ const mutations = {
     state.all = posts;
   },
   create: (state, post) => {
-    state.all.push(post)
-  }
+    state.all.push(post);
+  },
 };
 
 const actions = {
   [POSTS_GET_ALL]: ({ commit }) => {
     API.get('/posts/').then((response) => {
       if (response.status === 200) {
-        commit('set', response.data["results"])
+        commit('set', response.data.results);
       }
     });
   },
   [POSTS_CREATE]: ({ commit }, post) => {
     API.post('/posts/', post).then((response) => {
       if (response.status === 201) {
-        commit('create', post)
+        commit('create', post);
       }
     });
-  }
+  },
 };
 
 const state: State = {
@@ -41,4 +41,4 @@ export default {
   state,
   mutations,
   actions,
-}
+};
