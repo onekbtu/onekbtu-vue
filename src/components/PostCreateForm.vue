@@ -70,7 +70,7 @@ export default {
     MainCard,
   },
   data: () => ({
-    post: new Post(0, '', ''),
+    post: new Post(0, '', '', 0),
     toolbars: EDITOR_TOOLBAR,
   }),
   methods: {

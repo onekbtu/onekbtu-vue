@@ -21,7 +21,7 @@ const actions = {
     api({ url: 'auth/login/', data: user, method: 'POST' })
       .then((response) => {
         localStorage.setItem('user-token', response.data.token);
-        axios.defaults.headers.common.Authorization = response.data.token;
+        axios.defaults.headers.common.Authorization = `JWT ${response.data.token}`;
         commit(AUTH_SUCCESS, response.data);
         resolve(response);
       })
