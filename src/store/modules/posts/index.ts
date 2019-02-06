@@ -1,4 +1,4 @@
-import {POSTS_CREATE, POSTS_GET_ALL} from '@/store/actions/posts';
+import { POSTS_CREATE, POSTS_GET_ALL } from '@/store/actions/posts';
 import Post from './model';
 import API from '@/store/api';
 

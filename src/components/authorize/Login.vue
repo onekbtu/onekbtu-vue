@@ -57,9 +57,8 @@ export default {
     }),
     login() {
       const { username, password } = this;
-      console.log('OK');
       this.authorise({ username, password }).then(() => {
-        this.router.push('/');
+        this.$router.push('/');
       });
     },
   },

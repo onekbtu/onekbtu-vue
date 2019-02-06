@@ -8,20 +8,29 @@
     <v-toolbar-items class="hidden-sm-and-down">
       <v-btn flat :to="{name: 'PostCreateForm'}">CREATE POST</v-btn>
       <v-btn flat>FOLLOWED</v-btn>
-      <v-btn flat>PROFILE</v-btn>
+      <v-btn
+        v-if="isAuthenticated"
+        flat
+        @click="logout"
+      >
+       Logout
+      </v-btn>
     </v-toolbar-items>
     <v-btn
+      v-if="!isAuthenticated"
       flat
       outline
       :to="{name: 'login'}"
     >
       LOG IN
     </v-btn>
-    <v-btn style="background-color: #fafafa !important;"
-           color="deep-orange darken-1"
-           flat
-           outline
-           :to="{name: 'register'}"
+    <v-btn
+      v-if="!isAuthenticated"
+      style="background-color: #fafafa !important;"
+      color="deep-orange darken-1"
+      flat
+      outline
+      :to="{name: 'register'}"
     >
       SIGN UP
     </v-btn>
@@ -29,9 +38,23 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex';
+import { AUTH_LOGOUT } from '../store/actions/auth';
+
 export default {
   name: 'Toolbar',
+  computed: {
+    ...mapGetters('user', ['isAuthenticated']),
+  },
   methods: {
+    ...mapActions('user', {
+      clearStore: AUTH_LOGOUT,
+    }),
+    logout() {
+      this.clearStore().then(() => {
+        this.$router.push('/');
+      });
+    },
     toggleNav() {
       this.$root.$emit('toggleNav');
     },

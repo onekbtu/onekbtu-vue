@@ -32,7 +32,7 @@
       ></v-text-field>
     </v-flex>
     <v-flex>
-      <v-btn color="accent" class="ml-4 mr-4" large> Sign up </v-btn>
+      <v-btn color="accent" class="ml-4 mr-4" large @click="register()"> Sign up </v-btn>
     </v-flex>
     <v-flex class="ml-4 mt-1">
       <p class="font-weight-light">
@@ -44,6 +44,9 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
+import { AUTH_REGISTER, AUTH_REQUEST } from '../../store/actions/auth';
+
 export default {
   name: 'Register',
   data: () => ({
@@ -64,6 +67,20 @@ export default {
       },
     },
   }),
+  methods: {
+    ...mapActions('user', {
+      authorise: AUTH_REGISTER,
+      login: AUTH_REQUEST,
+    }),
+    register() {
+      const { username, email, password } = this;
+      this.authorise({ email, username, password }).then(() => {
+        this.login({ username, password }).then(() => {
+          this.$router.push('/');
+        });
+      });
+    },
+  },
 };
 </script>
 

@@ -21,7 +21,7 @@ const actions = {
         .then(response => {
           localStorage.setItem('user-token', response.data.token);
           axios.defaults.headers.common['Authorization'] = response.data.token;
-          commit(AUTH_SUCCESS, response);
+          commit(AUTH_SUCCESS, response.data);
           resolve(response);
         })
         .catch(err => {
@@ -34,11 +34,8 @@ const actions = {
   [AUTH_REGISTER]: ({commit, dispatch}, user) => {
     return new Promise((resolve, reject) => {
       commit(AUTH_REQUEST);
-      api({url: 'auth/login/', data: user, method: 'POST'})
+      api({url: 'auth/register/', data: user, method: 'POST'})
         .then(response => {
-          localStorage.setItem('user-token', response.data.token);
-          axios.defaults.headers.common['Authorization'] = response.data.token;
-          commit(AUTH_SUCCESS, response);
           resolve(response);
         })
         .catch(err => {
