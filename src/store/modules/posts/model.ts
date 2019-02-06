@@ -1,8 +1,12 @@
 export default class Post {
   id: number;
+
   title: string;
+
   content: string;
+
   rating: number;
+
   vote: number;
 
   constructor(id: number, title: string, content: string, rating: number, vote: number) {

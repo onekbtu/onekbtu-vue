@@ -1,4 +1,6 @@
-import {POSTS_CREATE, POSTS_DISLIKE, POSTS_GET_ALL, POSTS_LIKE} from '@/store/actions/posts';
+import {
+  POSTS_CREATE, POSTS_DISLIKE, POSTS_GET_ALL, POSTS_LIKE,
+} from '@/store/actions/posts';
 import Post from './model';
 import API from '@/store/api';
 
@@ -19,9 +21,7 @@ const actions = {
   [POSTS_GET_ALL]: ({ commit }) => {
     API.get('/posts/').then((response) => {
       if (response.status === 200) {
-        commit('set', response.data.results.map(post =>
-          new Post(post.id, post.title, post.content, post.rating, post.vote)
-        ));
+        commit('set', response.data.results.map(post => new Post(post.id, post.title, post.content, post.rating, post.vote)));
       }
     });
   },
@@ -29,33 +29,33 @@ const actions = {
     API.post('/posts/', post).then((response) => {
       if (response.status === 201) {
         commit('create', post);
-        resolve(post)
+        resolve(post);
       } else {
-        reject(response.data)
+        reject(response.data);
       }
     }).catch((error) => {
       reject(error);
     });
   }),
   [POSTS_LIKE]: ({ commit }, postId: number) => new Promise((resolve, reject) => {
-    const vote = {post: postId, type: 1};
+    const vote = { post: postId, type: 1 };
     API.post('/votes/', vote).then((response) => {
       if (response.status === 201) {
-        resolve(response.data)
+        resolve(response.data);
       } else {
-        reject(response.data)
+        reject(response.data);
       }
     }).catch((error) => {
       reject(error);
     });
   }),
   [POSTS_DISLIKE]: ({ commit }, postId: number) => new Promise((resolve, reject) => {
-    const vote = {post: postId, type: -1};
+    const vote = { post: postId, type: -1 };
     API.post('/votes/', vote).then((response) => {
       if (response.status === 201) {
-        resolve(response.data)
+        resolve(response.data);
       } else {
-        reject(response.data)
+        reject(response.data);
       }
     }).catch((error) => {
       reject(error);
