@@ -78,7 +78,9 @@ export default {
       create: POSTS_CREATE,
     }),
     onclick() {
-      this.create(this.post);
+      this.create(this.post).then(() => {
+        this.$router.push('/');
+      });
     },
   },
 };

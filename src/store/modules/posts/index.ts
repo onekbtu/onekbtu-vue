@@ -23,13 +23,18 @@ const actions = {
       }
     });
   },
-  [POSTS_CREATE]: ({ commit }, post) => {
+  [POSTS_CREATE]: ({ commit }, post) => new Promise((resolve, reject) => {
     API.post('/posts/', post).then((response) => {
       if (response.status === 201) {
         commit('create', post);
+        resolve(post)
+      } else {
+        reject(response.data)
       }
+    }).catch((error) => {
+      reject(error);
     });
-  },
+  }),
 };
 
 const state: State = {

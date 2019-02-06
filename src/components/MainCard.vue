@@ -30,7 +30,7 @@
             v-on:mouseover="likeHover = !likeHover"
             v-on:mouseleave="likeHover = !likeHover"
           >arrow_upward</v-icon>
-          <p class="font-weight-bold mb-0 ml-3 mr-3"> 2 </p>
+          <p class="font-weight-bold mb-0 ml-3 mr-3"> {{ post.rating }} </p>
           <v-icon
             medium
             v-bind:class="{
