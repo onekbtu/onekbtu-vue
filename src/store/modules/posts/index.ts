@@ -17,8 +17,8 @@ const mutations = {
   },
   updateVote: (state, payload) => {
     let post = state.all.find(post => post.id === payload.post);
-    post.rating += payload.type - post.vote;
-    post.vote = payload.type;
+    post.rating += payload.vote_value - post.vote;
+    post.vote = payload.vote_value;
   },
 };
 
@@ -43,7 +43,7 @@ const actions = {
     });
   }),
   [POSTS_LIKE]: ({ commit }, postId: number) => new Promise((resolve, reject) => {
-    const vote = { post: postId, type: 1 };
+    const vote = { post: postId, vote_value: 1 };
     API.post('/votes/', vote).then((response) => {
       if (response.status === 201) {
         commit('updateVote', response.data);
@@ -56,7 +56,7 @@ const actions = {
     });
   }),
   [POSTS_DISLIKE]: ({ commit }, postId: number) => new Promise((resolve, reject) => {
-    const vote = { post: postId, type: -1 };
+    const vote = { post: postId, vote_value: -1 };
     API.post('/votes/', vote).then((response) => {
       if (response.status === 201) {
         commit('updateVote', response.data);

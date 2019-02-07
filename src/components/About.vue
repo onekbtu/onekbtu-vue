@@ -25,6 +25,7 @@
         <li> NurlashKO </li>
         <li> Muslim Beibytuly </li>
         <li> Alan Amanov </li>
+        <li> Zharaskhan Aman </li>
       </ul>
 
       <h2 class="mt-3 font-weight-medium"> Can I help? </h2>
