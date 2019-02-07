@@ -6,8 +6,6 @@ COPY . /onekbtu-vue
 
 WORKDIR /onekbtu-vue
 
-RUN mkdir node_modules
-
 RUN npm install -g --silent @vue/cli
 
 RUN npm install --no-cache && npm run build --production

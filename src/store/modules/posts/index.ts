@@ -15,6 +15,11 @@ const mutations = {
   create: (state, post) => {
     state.all.push(post);
   },
+  updateVote: (state, payload) => {
+    let post = state.all.find(post => post.id === payload.post);
+    post.rating += payload.type - post.vote;
+    post.vote = payload.type;
+  },
 };
 
 const actions = {
@@ -41,6 +46,7 @@ const actions = {
     const vote = { post: postId, type: 1 };
     API.post('/votes/', vote).then((response) => {
       if (response.status === 201) {
+        commit('updateVote', response.data);
         resolve(response.data);
       } else {
         reject(response.data);
@@ -53,6 +59,7 @@ const actions = {
     const vote = { post: postId, type: -1 };
     API.post('/votes/', vote).then((response) => {
       if (response.status === 201) {
+        commit('updateVote', response.data);
         resolve(response.data);
       } else {
         reject(response.data);
